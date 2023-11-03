@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Discussion Forum</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <h1>Open for Discussions</h1>
+    <ul id="threadList">
+        
+    </ul>
+    <script>
+        const threads = JSON.parse(localStorage.getItem('threads')) || [];
+
+        function createThread() {
+            const threadName = prompt('Enter the thread name:');
+            if (threadName) {
+                const thread = {
+                    id: new Date().getTime(),
+                    name: threadName,
+                    comments: [],
+                };
+                threads.push(thread);
+                updateThreads();
+            }
+        }
+
+        function deleteThread(id) {
+            const confirmDelete = confirm('Are you sure you want to delete this thread?');
+            if (confirmDelete) {
+                const index = threads.findIndex(thread => thread.id === id);
+                if (index !== -1) {
+                    threads.splice(index, 1);
+                    updateThreads();
+                }
+            }
+        }
+
+        function updateThreads() {
+            localStorage.setItem('threads', JSON.stringify(threads));
+
+            const threadList = document.getElementById('threadList');
+            threadList.innerHTML = '';
+            threads.forEach(thread => {
+                const listItem = document.createElement('li');
+                const lastComment = thread.comments.length > 0 ? thread.comments[thread.comments.length - 1] : null;
+                const lastCommentTime = lastComment ? new Date(lastComment.time).toLocaleString() : 'No comments yet';
+
+                listItem.innerHTML = `
+                    <a href="t.html?id=${thread.id}">${thread.name}</a>
+                    <p>${thread.comments.length} comments</p>
+                    <p>Last comment: ${lastCommentTime}</p>
+                    <button onclick="deleteThread(${thread.id})">Delete Thread</button>
+                `;
+                threadList.appendChild(listItem);
+            });
+        }
+
+        updateThreads();
+    </script>
+    <button onclick="createThread()">Create Thread</button>
+</body>
+</html>

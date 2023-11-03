@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thread Page</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <h1 id="threadTitle">Thread Title</h1>
+    <textarea id="commentText" rows="4" cols="50" placeholder="Enter your comment"></textarea>
+    <br>
+    <button onclick="promptForName()">Add Comment</button>
+    <div id="comments">
+        
+    </div>
+    <script>
+        const params = new URLSearchParams(location.search);
+        const threadId = params.get('id');
+
+       
+        const threads = JSON.parse(localStorage.getItem('threads')) || [];
+
+        const thread = threads.find(thread => thread.id == threadId);
+
+        if (!thread) {
+            alert('Thread not found');
+            window.location.href = 'i.html';
+        }
+
+        document.getElementById('threadTitle').textContent = thread.name;
+
+        function promptForName() {
+            const authorName = prompt('Enter your name:');
+            if (authorName) {
+                addComment(authorName);
+            }
+        }
+
+        function addComment(authorName) {
+            const commentText = document.getElementById('commentText').value;
+            if (commentText) {
+                const comment = {
+                    author: authorName,
+                    time: new Date().toLocaleString(),
+                    text: commentText,
+                };
+                thread.comments.push(comment);
+                updateComments();
+               
+                localStorage.setItem('threads', JSON.stringify(threads));
+                document.getElementById('commentText').value = ''; 
+            }
+        }
+
+        function updateComments() {
+            const commentsContainer = document.getElementById('comments');
+            commentsContainer.innerHTML = '';
+
+            thread.comments.forEach(comment => {
+                const commentItem = document.createElement('div');
+                commentItem.innerHTML = `
+                    <p>${comment.text}</p>
+                    <p>${comment.author} - ${comment.time}</p>
+                `;
+                commentsContainer.appendChild(commentItem);
+            });
+        }
+
+        updateComments();
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0088cc;
+    color: #333; /* Change the font color to a different color, e.g., dark gray (#333) */
+    margin: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-image: url("WhatsApp\ Image\ 2023-11-03\ at\ 14.37.56_1c376ad5.jpg");
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.header {
+    text-align: center;
+}
+
+telegram-logo {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    margin-top: 10px;
+    color: #0088cc; /* Change the font color for the headers to the Telegram blue (#0088cc) */
+}
+
+label {
+    font-weight: bold;
+    color: #0088cc; /* Change the font color for the labels to the Telegram blue (#0088cc) */
+}
+
+input, textarea, select {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+input[type="submit"] {
+    background-color: #0088cc;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #0077b3;
+}

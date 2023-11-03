@@ -1,0 +1,89 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-image: url("WhatsApp\ Image\ 2023-11-03\ at\ 12.02.40_44229efa.jpg");
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background-color: #075e54; /* WhatsApp green background */
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+    font-size: 28px; /* Adjusted font size */
+}
+
+ul {
+    margin-left: 40px;
+    list-style: none;
+    padding: 0;
+    margin-right: 40px;
+}
+
+li {
+    background-color: #fff;
+    border: 1px solid #ddd; /* Light gray border */
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px; /* Rounded corners */
+}
+
+a {
+    text-decoration: none;
+    color: #128c7e; /* WhatsApp green link color */
+    font-size: 18px; /* Adjusted font size */
+    font-weight: bold;
+}
+
+textarea {
+    margin-top: 30px;
+    width: 70%;
+    height: 150px;
+    padding: 10px;
+    margin-left: 30px;
+    background-color: #f0f0f0; /* Light gray background */
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 20px; /* Adjusted font size for entered text */
+}
+
+button {
+    background-color: #075e54; /* WhatsApp green button color */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px; /* Rounded corners */
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #128c7e; /* Darker green on hover */
+}
+
+#comments {
+    margin: 10px;
+}
+
+#comments div {
+    background-color: #f0f0f0; /* Light gray background */
+    border: 1px solid #ddd; /* Light gray border */
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px; /* Rounded corners */
+}
+
+#comments p {
+    margin: 0;
+}
+
+#comments p:first-child {
+    font-weight: bold;
+}
+
+textarea::placeholder {
+    font-size: 18px; /* Adjusted placeholder font size */
+    color: #888; /* Light gray placeholder text */
+}
